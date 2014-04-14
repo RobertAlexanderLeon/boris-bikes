@@ -16,6 +16,10 @@ class Person
 		@bike = bike.break!
 	end
 
+	def return_bike_to(station)
+		@bike = station.accept_bike
+	end
+
 
 
 

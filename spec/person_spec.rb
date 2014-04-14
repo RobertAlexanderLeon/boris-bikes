@@ -28,6 +28,18 @@ describe Person do
 		person.fall_off(bike)
 	end
 
+	it "can return a bike to the docking station" do
+		station = double :station
+		expect(station).to receive(:accept_bike)
+		person.return_bike_to(station)
+	end
+
+	it "no longer has a bike after return_bike_to station" do
+	    station = double :station, accept_bike: :bike
+	    person.return_bike_to(station)
+	    expect(person).not_to have_bike
+	end
+
 
 
 end
