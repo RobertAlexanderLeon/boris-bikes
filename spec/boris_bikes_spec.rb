@@ -12,5 +12,4 @@ describe Bike do
 			bike.break!
 			expect(bike.fix!).not_to be_broken
 		end
-
 end
