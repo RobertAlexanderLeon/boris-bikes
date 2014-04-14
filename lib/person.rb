@@ -1,11 +1,11 @@
 class Person
 
 	def initialize
-		@bike
+		@bike = nil
 	end
 
 	def has_bike?
-        !@bike.nil? 	
+        @bike != nil 	
     end
 
 	def rent_bike_from(station)
@@ -18,6 +18,7 @@ class Person
 
 	def return_bike_to(station)
 		@bike = station.accept_bike
+		@bike = nil
 	end
 
 
