@@ -1,7 +1,7 @@
 class Person
 
-	def initialize
-		@bike = nil
+	def initialize bike = nil
+		@bike = bike
 	end
 
 	def has_bike?
@@ -9,7 +9,7 @@ class Person
     end
 
 	def rent_bike_from(station)
-		@bike = station.release_bike
+		@bike = station.release
 	end
 
 	def fall_off(bike)
@@ -17,7 +17,7 @@ class Person
 	end
 
 	def return_bike_to(station)
-		@bike = station.accept_bike
+		station.dock @bike
 		@bike = nil
 	end
 
