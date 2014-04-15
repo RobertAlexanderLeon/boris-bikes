@@ -13,7 +13,7 @@ class Person
 	end
 
 	def fall_off(bike)
-		@bike = bike.break!
+		@bike.break!
 	end
 
 	def return_bike_to(station)
