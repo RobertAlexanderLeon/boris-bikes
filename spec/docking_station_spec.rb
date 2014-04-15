@@ -12,8 +12,7 @@ describe Docking_Station do
 
 
 	it 'can release bikes' do
-		bike = double, :bike
-		station.release(bike)
+		station.release
 		expect(station.stock).to eq 0
 	end
 

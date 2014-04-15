@@ -8,8 +8,8 @@ class Docking_Station
 		@bikes << bike
 	end
 
-	def release(bike)
-		@bikes.delete(bike)
+	def release
+		@bikes.pop
 	end
 
 	def stock
