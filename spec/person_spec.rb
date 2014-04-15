@@ -2,7 +2,9 @@ require 'person'
 
 describe Person do 
 
-	let(:person) { Person.new }
+	let(:person) 		   { Person.new       }
+	let(:bike) 	           { double :bike     }
+	let(:person_with_bike) { Person.new(bike) }
 
 	it "doesn't have a bike" do
 		expect(person).not_to have_bike
@@ -21,11 +23,8 @@ describe Person do
 	end
 
 	it "can fall off the bike" do
-		bike = double :bike
 		expect(bike).to receive(:break!)
-		
-		person = Person.new
-		person.fall_off(bike)
+		person_with_bike.crashes
 	end
 
 	it "can return a bike to the docking station" do

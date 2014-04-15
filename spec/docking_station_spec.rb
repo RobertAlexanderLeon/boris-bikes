@@ -34,8 +34,15 @@ describe Docking_Station do
 	it "it knows it's capacity is 20 bikes" do
 		bike = double, :bike
 		20.times{station.dock(bike)}
-		expect(station.capacity).to eq "Maximum capacity reached!"
+		expect{21.times{station.dock(bike)}}.to raise_error "Maximum capacity reached!"
 	end
+
+	# it "won't release a broken bike to a person" do
+	# 	bike = double :bike, :broken?
+	# end
+
+	# it "will release a broken bike to a van" do
+ #    end
 
 
 	# it 'knows if a bike is broken' do
