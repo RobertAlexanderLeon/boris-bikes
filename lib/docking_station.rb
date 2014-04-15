@@ -16,4 +16,8 @@ class Docking_Station
 		@bikes.count
 	end
 
+	def capacity
+		@bikes.count >= 20 ? "Maximum capacity reached!" : "Space Available" 
+	end	
+
 end
