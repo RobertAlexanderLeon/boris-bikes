@@ -5,7 +5,7 @@ class Person
 	end
 
 	def has_bike?
-        @bike != nil 	
+        !!@bike
     end
 
 	def rent_bike_from(station)
