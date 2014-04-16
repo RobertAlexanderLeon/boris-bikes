@@ -58,11 +58,11 @@ describe DockingStation do
 		expect(station.stock).to eq 20
 	end
 
-	it 'will retire defective bikes' do
-		station.dock broken_bike
-		station.dock working_bike
- 		expect(station.retire).not_to eq working_bike
-	end
+	# it 'will retire defective bikes' do
+	# 	station.dock broken_bike
+	# 	station.dock working_bike
+ # 		expect(station.retire).not_to eq working_bike
+	# end
 
 
 end

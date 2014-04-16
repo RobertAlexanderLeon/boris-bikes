@@ -2,8 +2,6 @@ class DockingStation
 
 	CAPACITY = 20
 
-	attr_reader :bikes
-
 	def initialize
 		@bikes = []
 	end	
@@ -17,18 +15,16 @@ class DockingStation
 	end
 
 	def release
-		rentals = @bikes.reject{|bike| bike.broken?}
-		defective = @bikes.select{|bike| bike.broken?}
-		rentals.pop
-		@bikes = rentals + defective	
+		working_bikes = @bikes.reject {|bike| bike.broken?}
+		@bikes.delete(working_bikes.first)
 	end
 
-	def retire
-		rentals = @bikes.reject{|bike| bike.broken?}
-		defective = @bikes.select{|bike| bike.broken?}
-		defective.pop	
-		@bikes = rentals + defective
-	end
+	# def retire
+	# 	rentals = @bikes.reject{|bike| bike.broken?}
+	# 	defective = @bikes.select{|bike| bike.broken?}
+	# 	defective.pop	
+	# 	@bikes = rentals + defective
+	# end
 
 
 	def stock
