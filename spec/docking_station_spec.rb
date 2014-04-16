@@ -25,27 +25,11 @@ describe DockingStation do
 		expect(station.stock).to eq 0
 	end
 
-	it 'it returns full for 20 bikes' do
-		fill_station
-		expect(station.capacity).to eq "Maximum capacity reached!"
-	end
-
-	it 'it returns Space Available if there are less than 20 bikes' do
-		fill_station
-		station.release
-		expect(station.capacity).to eq "Space Available"
-	end
-
 	it "it knows it's capacity is 20 bikes" do
 		fill_station
 		expect{station.dock(working_bike)}.to raise_error "Maximum capacity reached!"
 	end
-
-	it "recognises broken bikes" do
-		station.dock broken_bike
-		station.dock working_bike
-		expect(station.detect_broken_bikes).to eq [broken_bike]
-	end	 
+ 
 
  	it "will sort through the bikes to ensure a working bike is loaned instead of a broken bike" do
 		station.dock working_bike
@@ -57,13 +41,6 @@ describe DockingStation do
 		fill_station
 		expect(station.stock).to eq 20
 	end
-
-	# it 'will retire defective bikes' do
-	# 	station.dock broken_bike
-	# 	station.dock working_bike
- # 		expect(station.retire).not_to eq working_bike
-	# end
-
 
 end
 
