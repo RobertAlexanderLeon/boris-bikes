@@ -12,6 +12,10 @@ class Person
 		@bike = station.release
 	end
 
+	def bike(bike)
+		@bike = bike
+	end
+	
 	def crashes
 		@bike.break!
 	end

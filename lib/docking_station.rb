@@ -1,11 +1,15 @@
-class Docking_Station
+class DockingStation
+
+	CAPACITY = 20
+
+	attr_reader :bikes
 
 	def initialize
 		@bikes = []
 	end	
 
 	def dock(bike)
-		if @bikes.count < 20
+		if @bikes.count < CAPACITY
 			@bikes << bike
 		else
 			raise "Maximum capacity reached!"
@@ -13,15 +17,30 @@ class Docking_Station
 	end
 
 	def release
-		@bikes.pop
+		rentals = @bikes.reject{|bike| bike.broken?}
+		defective = @bikes.select{|bike| bike.broken?}
+		rentals.pop
+		@bikes = rentals + defective	
 	end
+
+	def retire
+		rentals = @bikes.reject{|bike| bike.broken?}
+		defective = @bikes.select{|bike| bike.broken?}
+		defective.pop	
+		@bikes = rentals + defective
+	end
+
 
 	def stock
 		@bikes.count
 	end
 
 	def capacity
-		@bikes.count >= 20 ? "Maximum capacity reached!" : "Space Available" 
+		@bikes.count >= CAPACITY ? "Maximum capacity reached!" : "Space Available" 
 	end	
+
+	def detect_broken_bikes
+		@bikes.select{|bike| bike.broken?}
+	end
 
 end
