@@ -14,24 +14,31 @@ class VanKenstein
 		end
 	end
 
-	def release
+	def release_working_bikes
 		working_bikes = @bikes.reject {|bike| bike.broken?}
-		@bikes.delete(working_bikes.first)
+		@bikes -= working_bikes
 	end
 
-	def stock
-		@bikes.count
+	def release_broken_bikes
+		broken_bikes = @bikes.select {|bike| bike.broken?}
+		@bikes -= broken_bikes
 	end
 
-	def has_bike?
-        !!@bike
-    end
+	#let´s make this awesome later on with each with index
+	def inventory
+		puts @bikes.count
+		puts @bikes 
+	end
 
-	def rent_bike_from(station)
+	# def has_bike?
+ #        !!@bikes
+ #    end
+
+	def pick_up_from(station)
 		@bike = station.release
 	end
 
-	def return_bike_to(station)
+	def deliver_to(station)
 		station.dock @bike
 		@bike = nil
 	end
