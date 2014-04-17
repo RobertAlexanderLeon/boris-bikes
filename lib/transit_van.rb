@@ -34,8 +34,20 @@ class TransitVan
 		@bikes.count
 	end
 
-	def pick_up_from_s(station)		
+    def pickup_from(place)
+    	if place.class == DockingStation
+    		station_pickup(place)
+    	elsif place.class == Garage
+    		garage_pickup(place)
+    	end
+    end
+    			
+	def station_pickup(station)		
 		@bike = station.retire
+	end
+
+	def garage_pickup(garage)
+		@bike = garage.release
 	end
 
 	def deliver_to(station)
