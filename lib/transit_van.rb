@@ -1,10 +1,14 @@
-class VanKenstein
+class TransitVan
 
 	CAPACITY = 10
 
 	def initialize
 		@bikes = []
 	end	
+
+	def has_bike?
+        !!@bike
+    end
 
 	def dock(bike)
 		if @bikes.count < CAPACITY
@@ -26,16 +30,12 @@ class VanKenstein
 
 	#let´s make this awesome later on with each with index
 	def inventory
-		puts @bikes.count
-		puts @bikes 
+		puts @bikes
+		@bikes.count
 	end
 
-	# def has_bike?
- #        !!@bikes
- #    end
-
-	def pick_up_from(station)
-		@bike = station.release
+	def pick_up_from_s(station)		
+		@bike = station.retire
 	end
 
 	def deliver_to(station)
