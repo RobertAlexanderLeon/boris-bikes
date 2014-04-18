@@ -1,6 +1,9 @@
 require 'docking_station'
+require 'bikecontainer_spec'
 
 describe DockingStation do
+
+	it_should_behave_like 'BikeContainer'
 
 	let (:station) { DockingStation.new }
 	let (:broken_bike) {double(:bike, :broken? => true )}

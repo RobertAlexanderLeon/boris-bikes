@@ -10,7 +10,7 @@ module BikeContainer
 	end
 
 	def dock_array(bikes)
-		bikes.each{|bike| bike.dock}
+		bikes.each{|bike| dock(bike)}
 	end
 
 	def inventory

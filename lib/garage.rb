@@ -8,5 +8,9 @@ class Garage
 		@bikes = []
 		@capacity = 10
 	end	
-	
+
+	def fix_array
+		@bikes.each {|bike| bike.fix! }
+	end
+
 end

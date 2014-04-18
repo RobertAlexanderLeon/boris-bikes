@@ -9,7 +9,7 @@ class PhantomContainer
 	end
 end
 
-describe BikeContainer do
+shared_examples "BikeContainer" do
 
 	let (:broken_bike) {double(:bike, :broken? => true )}
 	let (:working_bike) {double(:bike, :broken? => false )}
@@ -20,7 +20,9 @@ describe BikeContainer do
 	end
 
 	def bike_array
-		bike_array = [20 * working_bike]
+		bike_array = []
+		20.times { bike_array << Bike.new}
+		return bike_array
 	end
 
 	it "has 20 bikes after docking 20 single bikes" do
